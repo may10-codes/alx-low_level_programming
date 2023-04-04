@@ -1,7 +1,9 @@
 #include "lists.h"
+#include <stdlib.h>
+#define node listint_t
 
 /**
- * add_nodeint - creates a new node@ the beginning of a list
+ * add_nodeint - creates a new n@ the beginning of a list
  * @head: Pointer to address of a list
  * @n: Integer
  *
