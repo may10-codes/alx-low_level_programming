@@ -1,30 +1,46 @@
-#include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include"main.h"
+#include<stdlib.h>
+char *_strdup(char *str)
+{
+    char *dup;
+    int r, stringlength;
 
-/**
- * simple_print_buffer - prints buffer in hexa
- * @buffer: the address of memory to print
- * @size: the size of the memory to print
- *
- * Return: Nothing.
- *
- */
+    r = 0;
+    stringlength = 0;
 
-char *create_array(unsigned int size, char c) {
-    if (size == 0) {
-        return NULL;
+    if (str == NULL)
+    {
+        return (NULL);
     }
-
-    char *array = (char *)malloc(size * sizeof(char));
-    if (array == NULL) {
-        return NULL;
+    while (str[stringlength])
+    {
+        stringlength++;
     }
+    dup = malloc(sizeof(char) * (stringlength + 1));
 
-    for (unsigned int i = 0; i < size; i++) {
-        array[i] = c;
+    if (dup == NULL)
+    {
+        return (NULL);
     }
+    while ((dup[r] = str[r]) != '\0')
+    {
+        r++;
+    }
+    return (dup);
+}
 
-    return array;
+char *create_array(unsigned int size, char c)
+{
+    char *str = malloc(size);
+
+    if (size == 0 || str == 0)
+    {
+        return (NULL);
+    }
+    while (size--)
+    {
+        str[size] = c;
+    }
+    return (str);
 }
 
