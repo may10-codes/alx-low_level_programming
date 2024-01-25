@@ -1,38 +1,29 @@
-#include "3-calc.h"
+#include<stdio.h>
+#include<stdlib.h>
+#include"3-calc.h"
+
 /**
-  * main - Main function to execute code
-  * @argc: Number of arguments
-  * @argv: Value of argument
-  *
-  * Return: 0 Success
-  */
+ * main - defines main function
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 0 on success,else  98 or 99 without operator
+ */
+
 int main(int argc, char *argv[])
 {
-	int a, b;
-	char *op;
-	int (*ptr_func)(int, int);
+    int n1, n2;
 
-	if (argc != 4)
-	{
-		printf("Error\n");
-		exit(98);
-	}
+    if (argc != 4)
+        printf("Error\n"), exit(98);
+    n1 = atoi(argv[1]);
+    n2 = atoi(argv[3]);
 
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
+    if (get_op_func(argv[2]) == NULL)
+        printf("Error\n"), exit(99);
 
-	op = argv[2];
-
-	ptr_func = get_op_func(op);
-
-	if (ptr_func == NULL)
-	{
-		printf("Error\n");
-		exit(99);
-	}
-
-	printf("%d\n", ptr_func(a, b));
-
-	return (0);
+    if (n2 == 0 && (*argv[2] == '%' || *argv[2] == '/'))
+        printf("Error\n"), exit(100);
+    printf("%d\n", (get_op_func(argv[2])(n1, n2)));
+    return (0);
 }
 
