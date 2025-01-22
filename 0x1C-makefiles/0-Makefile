@@ -1,6 +1,5 @@
-# Define the 'all' rule which is the default target
+# Rule to build the 'school' executable from 'main_0.c'
 all: school
 
-# Rule to build the 'school' executable
-school: school.c
-    $(CC) school.c -o school
+school: main_0.c
+    $(CC) main_0.c -o school
