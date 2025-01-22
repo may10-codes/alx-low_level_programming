@@ -1,23 +1,17 @@
-# Define variables
 CC = gcc
+SRC = main_0.c
+OBJ = $(SRC:.c=.o)
 NAME = school
-SRC = $(wildcard *.c)  # Automatically find all .c files in the directory
-OBJ = $(SRC:.c=.o)  # Generate .o file names from .c files
 
-# Default rule
 all: $(NAME)
 
-# Rule to build the executable from object files
 $(NAME): $(OBJ)
-    $(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
-# Pattern rule for compiling .c to .o
 %.o: %.c
-    $(CC) -c $< -o $@
+	$(CC) -c $< -o $@
 
-# Clean rule to remove all .o files and the executable
 clean:
-    rm -f $(OBJ) $(NAME)
+	rm -f $(OBJ) $(NAME)
 
-# Phony targets
 .PHONY: all clean
