@@ -1,5 +1,5 @@
 # Define variables
-CC = gcc  # Default compiler, you can change this if needed
+CC = gcc
 SRC = main_0.c  # Assuming this is your source file, adjust if different
 
 # Rule 'all' which is the default target
