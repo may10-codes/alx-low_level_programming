@@ -1,5 +1,4 @@
-# Rule to build the 'school' executable from 'main_0.c'
 all: school
 
-school: main_0.c
-    $(CC) main_0.c -o school
+school: school.c
+    cc -o school school.c
