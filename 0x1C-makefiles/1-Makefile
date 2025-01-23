@@ -1,8 +1,5 @@
 CC = gcc
 SRC = main.c school.c
-CFLAGS = -I.
 
-all: school
-
-school: $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o school
+all: $(SRC)
+	$(CC) $(SRC) -o school
